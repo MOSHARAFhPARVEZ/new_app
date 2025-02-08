@@ -29,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/merchants/dashboard', [MerchantController::class, 'MerchantsDashboard'])->name('merchants.dashboard');
 
 
-
+// Admin Merchant list Part
 Route::prefix('admin/')->middleware('auth')->name('admin.')->group(function () {
     Route::get('/merchant-list', [AdminController::class, 'MerchantList'])->name('merchant.list');
 });
@@ -37,7 +37,7 @@ Route::prefix('admin/')->middleware('auth')->name('admin.')->group(function () {
 
 
 
-
+// Merchant Store Part
 Route::prefix('merchant/')->middleware('auth')->name('merchant.')->group(function () {
     Route::get('/store-list', [StoreController::class, 'MerchantStoreList'])->name('store.list');
     Route::post('/store-add', [StoreController::class, 'MerchantAddList'])->name('store.add');
@@ -46,6 +46,7 @@ Route::prefix('merchant/')->middleware('auth')->name('merchant.')->group(functio
 });
 
 
+// Merchant Category Part
 Route::prefix('merchant/')->middleware('auth')->name('merchant.')->group(function () {
     Route::get('/category-list', [CategoryController::class, 'MerchantCategoryList'])->name('category.list');
     Route::post('/category-add', [CategoryController::class, 'MerchantCategoryAdd'])->name('category.add');
@@ -53,6 +54,7 @@ Route::prefix('merchant/')->middleware('auth')->name('merchant.')->group(functio
 });
 
 
+// Merchant Product Part
 Route::prefix('merchant/')->middleware('auth')->name('merchant.')->group(function () {
     Route::get('/product-list', [ProductController::class, 'MerchantProductList'])->name('product.list');
     Route::post('/product-add', [ProductController::class, 'MerchantProductAdd'])->name('product.add');
